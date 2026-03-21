@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 | Personal Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f6f0e9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #d9c7b8;
+        }
+        .lang-switch {
+            padding: 8px 16px;
+            background: #b98c6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .lang-switch:hover {
+            background: #a67b5b;
+        }
+        section {
+            background: #ffffff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #6d4c41;
+            margin-bottom: 15px;
+            font-size: 22px;
+            border-left: 4px solid #b98c6b;
+            padding-left: 10px;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-item strong {
+            color: #b98c6b;
+            min-width: 100px;
+            display: inline-block;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            text-align: left;
+            word-spacing: normal;
+        }
+        .update-time {
+            text-align: right;
+            color: #a99a8f;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+        .profile-photo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-photo img {
+            width: auto;
+            height: auto;
+            max-width: 180px;
+            border-radius: 0;
+            object-fit: contain;
+            border: none;
+        }
+
+        /* 英文排版：左对齐+智能换行+绝不拉伸单词 */
+        .zh, .en {
+            text-align: left;
+            word-spacing: normal;
+            letter-spacing: normal;
+            hyphens: none;
+            line-height: 1.7;
+            text-wrap: pretty;
+        }
+        .zh { display: block; }
+        .en { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="zh">个人主页</h1>
+        <h1 class="en">Personal Homepage</h1>
+        <button class="lang-switch" onclick="toggleLang()">中文 / English</button>
+    </header>
+
+    <section>
+        <div class="profile-photo">
+            < img src="your-photo.jpg" alt="Your Photo">
+        </div>
+
+        <h2 class="zh">基本信息</h2>
+        <h2 class="en">Basic Information</h2>
+        <div class="info-item">
+            <strong class="zh">姓名：</strong>
+            <span class="zh">[你的姓名]</span>
+            <strong class="en">Name:</strong>
+            <span class="en">[Your Name]</span>
+        </div>
+        <div class="info-item">
+            <strong class="zh">学校/专业：</strong>
+            <span class="zh">华东政法大学 金融学（数量金融方向）</span>
+            <strong class="en">University / Major:</strong>
+            <span class="en">East China University of Political Science and Law, Finance (Quantitative Finance)</span>
+        </div>
+        <div class="info-item">
+            <strong class="zh">研究/职业方向：</strong>
+            <span class="zh">应用统计、金融风险管理、数据分析</span>
+            <strong class="en">Research Interests:</strong>
+            <span class="en">Applied Statistics, Financial Risk Management, Data Analysis</span>
+        </div>
+        <div class="info-item">
+            <strong class="zh">联系方式：</strong>
+            <span class="zh">[你的邮箱]</span>
+            <strong class="en">Email:</strong>
+            <span class="en">[Your Email]</span>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="zh">个人简介</h2>
+        <h2 class="en">Personal Profile</h2>
+        <p class="zh">
+            本人学习态度严谨，积极参与老师学术学习小组，依托专利数据库资源，通过编程完成中国人工智能领域相关专利的批量筛查与统计分析，实现产业链环节识别与地域分布测度，具备扎实的数据处理与实证研究能力。专业基础扎实，对金融风险管理方向抱有浓厚兴趣，乐于在老师指导下开展系统性学术研究，高效完成科研任务并持续提升研究能力。
+        </p >
+        <p class="en">
+            I have a rigorous academic attitude and actively participated in my professor’s research group. Using patent databases and programming techniques, I conducted batch screening and statistical analysis of AI-related patents in China, and analyzed their industrial chain distribution and regional characteristics. With solid data processing and empirical research skills, I am highly interested in financial risk management and eager to conduct in-depth academic research under the guidance of my professor.
+        </p >
+    </section>
+
+    <section>
+        <h2 class="zh">技能清单</h2>
+        <h2 class="en">Skills</h2>
+        <ul class="zh">
+            <li>编程语言：Python（数据处理、批量分析）</li>
+            <li>数据分析：统计建模、专利数据挖掘、可视化</li>
+            <li>专业能力：金融风险管理、计量经济学、统计学</li>
+            <li>其他：学术写作、六级550分</li>
+        </ul>
+        <ul class="en">
+            <li>Programming: Python for data processing and batch analysis</li>
+            <li>Data Analysis: Statistical modeling, patent mining, data visualization</li>
+            <li>Professional: Financial risk management, econometrics, statistics</li>
+            <li>Others: Academic writing, CET-6 Score: 550</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="zh">课程经历</h2>
+        <h2 class="en">Courses & Research Experience</h2>
+        <ul class="zh">
+            <li>主修课程：统计学、金融风险管理、Python语言与数据结构、税法、公司并购、金融市场</li>
+            <li>科研经历：参与老师学术小组，负责中国AI相关专利的程序筛查与产业链/地域分布测度</li>
+        </ul>
+        <ul class="en">
+            <li>Core Courses: Statistics, Financial Risk Management, Python Programming & Data Structures, Tax Law, Corporate M&A, Financial Markets</li>
+            <li>Research Experience: Participated in my professor’s academic group, conducting screening and distribution analysis of AI-related patents in China</li>
+        </ul>
+    </section>
+
+    <div class="update-time">
+        <span class="zh">最后更新：2026年03月18日</span>
+        <span class="en">Last Updated: March 18, 2026</span>
+    </div>
+</div>
+
+<script>
+// 状态变量：初始为中文
+let isChinese = true;
+
+function toggleLang() {
+  isChinese = !isChinese;
+  // 切换中文显示状态
+  document.querySelectorAll('.zh').forEach(el => {
+    el.style.display = isChinese ? 'block' : 'none';
+  });
+  // 切换英文显示状态
+  document.querySelectorAll('.en').forEach(el => {
+    el.style.display = isChinese ? 'none' : 'block';
+  });
+}
+
+// 页面加载完成后，强制初始化显示中文
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.zh').forEach(el => el.style.display = 'block');
+  document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+});
+</script>
+</body>
+</html>
