@@ -57,10 +57,11 @@
         }
         .info-item {
             margin-bottom: 10px;
+            text-align: left;
         }
         .info-item strong {
             color: #b98c6b;
-            min-width: 100px;
+            min-width: 120px;
             display: inline-block;
         }
         ul {
@@ -77,14 +78,27 @@
             font-size: 13px;
             margin-top: 20px;
         }
+
+        /* 核心布局：桌面端左信息+右图片；移动端先图片后信息 */
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .basic-info {
+            flex: 1;
+            min-width: 300px; /* 保证小屏幕时信息区不会太窄 */
+        }
         .profile-photo {
-            text-align: center;
-            margin-bottom: 20px;
+            flex-shrink: 0;
+            margin-bottom: 20px; /* 移动端图片和信息之间留间距 */
+            text-align: center; /* 移动端图片居中 */
+            width: 100%; /* 移动端占满宽度 */
         }
         .profile-photo img {
-            min-height:100px;
-            padding:10px;
-            width: auto;
+            width: 180px;
             height: auto;
             max-width: 180px;
             border-radius: 0;
@@ -92,7 +106,19 @@
             border: none;
         }
 
-        /* 英文排版：左对齐+智能换行+绝不拉伸单词 */
+        /* 桌面端（≥768px）恢复右对齐 */
+        @media (min-width: 768px) {
+            .flex-container {
+                flex-wrap: nowrap;
+            }
+            .profile-photo {
+                width: auto;
+                text-align: right;
+                margin-bottom: 0;
+            }
+        }
+
+        /* 英文排版 */
         .zh, .en {
             text-align: left;
             word-spacing: normal;
@@ -115,35 +141,39 @@
     </header>
 
     <section>
-        <div class="profile-photo">
-            <img src="微信图片_20241011232727.jpg" alt="个人照片" style="width:180px;height:auto">
-        </div>
-
-        <h2 class="zh">基本信息</h2>
-        <h2 class="en">Basic Information</h2>
-        <div class="info-item">
-            <strong class="zh">姓名：</strong>
-            <span class="zh">王靓玟</span>
-            <strong class="en">Name:</strong>
-            <span class="en">Liangwen Wang</span>
-        </div>
-        <div class="info-item">
-            <strong class="zh">学校/专业：</strong>
-            <span class="zh">华东政法大学 金融学（数量金融方向）</span>
-            <strong class="en">University / Major:</strong>
-            <span class="en">East China University of Political Science and Law, Finance (Quantitative Finance)</span>
-        </div>
-        <div class="info-item">
-            <strong class="zh">研究/职业方向：</strong>
-            <span class="zh">应用统计、金融风险管理、数据分析</span>
-            <strong class="en">Research Interests:</strong>
-            <span class="en">Applied Statistics, Financial Risk Management, Data Analysis</span>
-        </div>
-        <div class="info-item">
-            <strong class="zh">联系方式：</strong>
-            <span class="zh">2055481793@qq.com</span>
-            <strong class="en">Email:</strong>
-            <span class="en">2055481793@qq.com</span>
+        <div class="flex-container">
+            <!-- 移动端：图片先显示 -->
+            <div class="profile-photo">
+                < img src="微信图片_20241011232727.jpg" alt="个人照片">
+            </div>
+            <div class="basic-info">
+                <h2 class="zh">基本信息</h2>
+                <h2 class="en">Basic Information</h2>
+                <div class="info-item">
+                    <strong class="zh">姓名：</strong>
+                    <span class="zh">王靓玟</span>
+                    <strong class="en">Name:</strong>
+                    <span class="en">Liangwen Wang</span>
+                </div>
+                <div class="info-item">
+                    <strong class="zh">学校/专业：</strong>
+                    <span class="zh">华东政法大学 金融学（数量金融方向）</span>
+                    <strong class="en">University / Major:</strong>
+                    <span class="en">East China University of Political Science and Law, Finance (Quantitative Finance)</span>
+                </div>
+                <div class="info-item">
+                    <strong class="zh">研究/职业方向：</strong>
+                    <span class="zh">应用统计、金融风险管理、数据分析</span>
+                    <strong class="en">Research Interests:</strong>
+                    <span class="en">Applied Statistics, Financial Risk Management, Data Analysis</span>
+                </div>
+                <div class="info-item">
+                    <strong class="zh">联系方式：</strong>
+                    <span class="zh">2055481793@qq.com</span>
+                    <strong class="en">Email:</strong>
+                    <span class="en">2055481793@qq.com</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -189,28 +219,22 @@
     </section>
 
     <div class="update-time">
-        <span class="zh">最后更新：2026年03月18日</span>
-        <span class="en">Last Updated: March 18, 2026</span>
+        <span class="zh">最后更新：2026年03月21日</span>
+        <span class="en">Last Updated: March 21, 2026</span>
     </div>
 </div>
 
 <script>
-// 状态变量：初始为中文
 let isChinese = true;
-
 function toggleLang() {
   isChinese = !isChinese;
-  // 切换中文显示状态
   document.querySelectorAll('.zh').forEach(el => {
     el.style.display = isChinese ? 'block' : 'none';
   });
-  // 切换英文显示状态
   document.querySelectorAll('.en').forEach(el => {
     el.style.display = isChinese ? 'none' : 'block';
   });
 }
-
-// 页面加载完成后，强制初始化显示中文
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.zh').forEach(el => el.style.display = 'block');
   document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
