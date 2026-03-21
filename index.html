@@ -79,34 +79,32 @@
             margin-top: 20px;
         }
 
-        /* 核心布局：桌面端左信息+右图片；移动端先图片后信息 */
+        /* 核心布局：桌面端左信息+右图片（垂直居中）；移动端先图片后信息 */
         .flex-container {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center; /* 垂直居中对齐 */
             gap: 30px;
             flex-wrap: wrap;
         }
         .basic-info {
             flex: 1;
-            min-width: 300px; /* 保证小屏幕时信息区不会太窄 */
+            min-width: 300px;
         }
         .profile-photo {
             flex-shrink: 0;
-            margin-bottom: 20px; /* 移动端图片和信息之间留间距 */
-            text-align: center; /* 移动端图片居中 */
-            width: 100%; /* 移动端占满宽度 */
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
         }
         .profile-photo img {
             width: 180px;
             height: auto;
-            max-width: 180px;
-            border-radius: 0;
-            object-fit: contain;
-            border: none;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        /* 桌面端（≥768px）恢复右对齐 */
+        /* 桌面端（≥768px）：图片居右，保持垂直居中 */
         @media (min-width: 768px) {
             .flex-container {
                 flex-wrap: nowrap;
@@ -142,10 +140,6 @@
 
     <section>
         <div class="flex-container">
-            <!-- 移动端：图片先显示 -->
-            <div class="profile-photo">
-                <img src="微信图片_20241011232727.jpg" alt="个人照片">
-            </div>
             <div class="basic-info">
                 <h2 class="zh">基本信息</h2>
                 <h2 class="en">Basic Information</h2>
@@ -173,6 +167,9 @@
                     <strong class="en">Email:</strong>
                     <span class="en">2055481793@qq.com</span>
                 </div>
+            </div>
+            <div class="profile-photo">
+                < img src="微信图片_20241011232727.jpg" alt="个人照片">
             </div>
         </div>
     </section>
@@ -219,8 +216,8 @@
     </section>
 
     <div class="update-time">
-        <span class="zh">最后更新：2026年03月21日</span>
-        <span class="en">Last Updated: March 21, 2026</span>
+        <span class="zh">最后更新：2026年03月18日</span>
+        <span class="en">Last Updated: March 18, 2026</span>
     </div>
 </div>
 
